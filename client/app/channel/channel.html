@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <form class="form-inline" ng-submit="createChannel()">
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="channel.name" placeholder="Add a new Channel" required="required" />
+          <input type="submit" class="btn btn-primary" value="Create" />
+        </div>
+      </form>
+      <hr noshade="noshade" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <ul>
+        <li ng-repeat="message in messages">{{ message.content }} - {{ message.channel }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
