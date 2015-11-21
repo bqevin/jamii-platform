@@ -8,7 +8,7 @@ angular.module('jamiiApp')
     });
 
     $scope.sendMessage = function() {
-      $http.post('/api/messages').then(
+      $http.post('/api/commands', { raw: $scope.message }).then(
         function(res) {
           console.dir(res);
         }

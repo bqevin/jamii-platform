@@ -1,20 +1,16 @@
-var CommandSchema = {
-  action:"",
-  parameter:""
-}
+'use strict';
 
-exports.parse = function(str) {
-  var cs = CommandSchema;
-  var res = str.split(" ");
-  if (res.length > 1) {
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema;
 
-    var cmd = res[0].toLowerCase();
-    var prm = res.slice(1, res.length);
-    prm = prm.join(" ");
-
-    cs.action = cmd;
-    cs.parameter = prm;
+var CommandSchema = new Schema({
+  action: String,
+  parameter: String,
+  raw: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
+});
 
-  return cs;
-}
+module.exports = mongoose.model('Command', CommandSchema);
