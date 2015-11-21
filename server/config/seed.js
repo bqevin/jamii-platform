@@ -8,6 +8,7 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Message = require('../api/message/message.model');
+var Channel = require('../api/channel/channel.model');
 
 Thing.find({}).remove(function () {
   Thing.create({
@@ -51,6 +52,25 @@ Message.find({}).remove(function () {
       from: '+12312313213'
     }, function () {
       console.log('finished populating message');
+    });
+});
+
+Channel.find({}).remove(function () {
+  Channel.create(
+    {
+      name: 'Health',
+      members: ['01982309123', '01982309123']
+    }, {
+      name: 'Agriculture',
+      members: ['01982309123', '01982309123']
+    }, {
+      name: 'Agriculture',
+      members: ['01982309123', '01982309123']
+    }, {
+      name: 'Education',
+      members: ['01982309123', '01982309123']
+    }, function () {
+      console.log('finished populating channel');
     });
 });
 

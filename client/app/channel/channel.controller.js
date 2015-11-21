@@ -7,8 +7,9 @@ angular.module('jamiiApp')
     });
 
     $scope.createChannel = function () {
-      $http.post('/api/channels', $scope.channel.name).then(function (res) {
-        $scope.channels.push(res);
+      $http.post('/api/channels', $scope.channel).then(function (res) {
+        $scope.channels.push(res.data);
+        $scope.channel.name = null;
       });
     }
   });
