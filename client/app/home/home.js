@@ -3,9 +3,9 @@
 angular.module('jamiiApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('main', {
+      .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeCtrl'
       });
   });

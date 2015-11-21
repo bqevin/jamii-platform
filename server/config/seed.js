@@ -35,16 +35,20 @@ Message.find({}).remove(function () {
   Message.create(
     {
       content: 'Health event today at 6pm in the town hall',
-      channel: 'Health'
+      channel: 'Health',
+      from: '+12312313213'
     }, {
       content: 'Fertilizer truck is coming in tomorrow morning',
-      channel: 'Agriculture'
+      channel: 'Agriculture',
+      from: '+1231252213'
     }, {
       content: 'I need some help with my dying crops',
-      channel: 'Agriculture'
+      channel: 'Agriculture',
+      from: '+12348513213'
     }, {
       content: 'Parents and teachers meeting happening in 5 hours',
-      channel: 'Education'
+      channel: 'Education',
+      from: '+12312313213'
     }, function () {
       console.log('finished populating message');
     });
