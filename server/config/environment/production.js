@@ -21,5 +21,5 @@ module.exports = {
     'mongodb://jamiidb:reZgUS4W8eqOEy7vF0tAU2a8fBe0z90jinwGofGZUss-@ds042138.mongolab.com:42138/jamiidb'
   },
 
-  seedDB: false
+  seedDB: true
 };
