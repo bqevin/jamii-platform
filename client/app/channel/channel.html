@@ -12,8 +12,9 @@
       </form>
     </div>
     <div class="col-md-6">
+      <div style="text-align: right; width: 100%;"><label>Search</label>&nbsp;&nbsp;<input ng-model="flt" type="text" id="filterinput" /></div><br />
       <div class="list-group">
-        <a class="list-group-item" ng-repeat="channel in channels" ui-sref="channelDetail({ channelId: channel._id })"><span class="badge">{{channel.members.length}}</span> {{ channel.name }}</a>
+        <a class="list-group-item" ng-repeat="channel in channels | filter: flt" ui-sref="channelDetail({ channelId: channel._id })"><span class="badge">{{channel.members.length}}</span> {{ channel.name }}</a>
       </div>
     </div>
   </div>
