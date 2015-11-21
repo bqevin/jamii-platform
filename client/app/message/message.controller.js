@@ -8,7 +8,10 @@ angular.module('jamiiApp')
     });
 
     $scope.sendMessage = function() {
-      alert("Hey!");
+      $http.post('/api/messages').then(
+        function(res) {
+          console.dir(res);
+        }
+      );
     }
-
   });

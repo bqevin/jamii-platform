@@ -1,5 +1,5 @@
 'use strict';
-
+var TwilioMessage = require('./twilio.message');
 var _ = require('lodash');
 var Message = require('./message.model');
 
@@ -22,10 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new message in the DB.
 exports.create = function(req, res) {
-  Message.create(req.body, function(err, message) {
-    if(err) { return handleError(res, err); }
-    return res.status(201).json(message);
-  });
+  TwilioMessage.send('+16479625506', 'This is another test');
 };
 
 // Updates an existing message in the DB.
