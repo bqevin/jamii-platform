@@ -5,7 +5,7 @@ var Channel = require('./channel.model');
 
 // Get list of channels
 exports.index = function(req, res) {
-  Channel.find({}, '-members', function (err, channels) {
+  Channel.find(function (err, channels) {
     if(err) { return handleError(res, err); }
     return res.status(200).json(channels);
   });

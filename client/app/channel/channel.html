@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-6">
       <form class="form" ng-submit="createChannel()">
         <div class="form-group">
           <!-- <label>New Channel</label> -->
@@ -10,13 +10,10 @@
           <input type="submit" class="btn btn-primary" value="Create Channel" />
         </div>
       </form>
-      <hr noshade="noshade" />
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-6">
       <div class="list-group">
-        <a class="list-group-item" ng-repeat="channel in channels" i-sref="channelDetail({ channelId: channel._id })">{{ channel.name }}</a>
+        <a class="list-group-item" ng-repeat="channel in channels" i-sref="channelDetail({ channelId: channel._id })"><span class="badge">{{channel.members.length}}</span> {{ channel.name }}</a>
       </div>
     </div>
   </div>
