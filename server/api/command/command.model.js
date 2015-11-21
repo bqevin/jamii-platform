@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var CommandSchema = new Schema({
   action: String,
   parameter: String,
+  from: String,
   raw: String,
   createdAt: {
     type: Date,
