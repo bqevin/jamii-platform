@@ -6,6 +6,10 @@
 'use strict';
 
 // Gets a list of Commands
-exports.index = function(req, res) {
+/* exports.index = function(req, res) {
   res.json([]);
+}; */
+
+exports.newCommand = function (req, res) {
+  console.log(req);
 };
