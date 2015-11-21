@@ -6,6 +6,7 @@ angular.module('jamiiApp')
       .state('message', {
         url: '/messages',
         templateUrl: 'app/message/message.html',
-        controller: 'MessageCtrl'
+        controller: 'MessageCtrl',
+        authenticate: true
       });
   });
