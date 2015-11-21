@@ -375,7 +375,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             'package.json',
-            'server/**/*'
+            'server/**/*',
+            'web.config'
           ]
         }]
       },
@@ -395,15 +396,9 @@ module.exports = function (grunt) {
         connectCommits: false,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      heroku: {
+      azure: {
         options: {
-          remote: 'heroku',
-          branch: 'master'
-        }
-      },
-      openshift: {
-        options: {
-          remote: 'openshift',
+          remote: 'https://jamii:Abc1234567@jamii.scm.azurewebsites.net:443/jamii.git',
           branch: 'master'
         }
       }
@@ -431,7 +426,6 @@ module.exports = function (grunt) {
       dist: [
         'babel',
         'sass',
-        'imagemin',
         'svgmin'
       ]
     },
