@@ -3,6 +3,8 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+var twilio = require('../message/twilio.message');
+
 var member = {
   number: String
 };
@@ -34,6 +36,18 @@ ChannelSchema.statics.join = function (number, channelName, cb) {
 
 ChannelSchema.statics.leave = function (number, channelName, cb) {
   this.find({ name: channelName }).then(function (err, channel) {
+  });
+}
+
+ChannelSchema.statics.message = function (number, channelName, message, cb) {
+  this.findOne({ name: channelName }).then(function (channel) {
+    if (channel) {
+      for (var i = 0; i < channel.members.length; i++) {
+        twilio.send(number, message, function () {
+          console.log("message sent");
+        });
+      }
+    }
   });
 }
 

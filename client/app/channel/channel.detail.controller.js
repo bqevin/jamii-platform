@@ -5,6 +5,7 @@ angular.module('jamiiApp')
 
     $http.get('/api/channels/' + channelId).then(function (res) {
       $scope.channel = res.data;
+      $scope.command = $scope.channel.name;
     });
     
     $scope.sendMessageToChannel = function() {

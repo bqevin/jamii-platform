@@ -35,6 +35,10 @@ Thing.find({}).remove(function () {
 Channel.find({}).remove(function () {
   Channel.create(
     {
+      name: 'reality_check',
+      members: [{ number: "+16478789458" }, { number: "+16476946148" }]
+    },
+    {
       name: 'health',
       members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
     }, {
