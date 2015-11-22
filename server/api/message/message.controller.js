@@ -1,6 +1,4 @@
 'use strict';
-var TwilioMessage = require('./twilio.message');
-var Command = require('../command/command.model');
 
 var _ = require('lodash');
 var Message = require('./message.model');

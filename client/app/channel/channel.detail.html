@@ -31,7 +31,7 @@
 			<h4>Message the Channel</h4>
 			<form class="form" ng-submit="sendMessageToChannel()">
 				<div class="form-group">
-					<input type="text" class="form-control" name="msg_content" placeholder="max 120 characters" required="required" />
+					<input type="text" class="form-control" ng-model="command" placeholder="max 120 characters" required="required" />
 				</div>
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Send!" />

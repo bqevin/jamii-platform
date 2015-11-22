@@ -16,21 +16,25 @@ exports.create = function (req, res) {
     switch (command.action) {
       case "join":
         {
-          Channel.join(command.from, command.parameter, function() {
-            return res.status(201);
+          Channel.join(command.from, command.parameter, function () {
+            return res.status(201).json(command);
           });
           break;
         }
       case "leave":
         {
           Channel.leave(command.from, command.parameter, function () {
-            return res.status(201);
+            return res.status(201).json(command);
           });
           break;
         }
       default:
-        Message.send(command.from, command.action, command.parameter);
-        break;
+        {
+          Channel.message(command.from, command.action, command.parameter, function () {
+            return res.status(201).json(command);
+          });
+          break;
+        }
     }
   });
 };
