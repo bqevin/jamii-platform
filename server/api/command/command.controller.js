@@ -7,30 +7,37 @@ var Message = require('../message/message.model');
 
 // Creates a new command in the DB.
 exports.create = function (req, res) {
-  var command = parseRaw(req.body.raw);
+  var raw = req.body;
+  
+  // parse the text command
+  var command = parseRaw(raw.Body);
+  // copy the number from which text was sent
+  command.from = raw.From;
+  
   command.save(function (err, command) {
     if (err) { return handleError(res, err); }
-
-    //todo add "from" from Twilio api
-    command.from = "1028301293";
     switch (command.action) {
       case "join":
         {
-          Channel.join(command.from, command.parameter, function() {
-            return res.status(201);
+          Channel.join(command.from, command.parameter, function () {
+            return res.status(201).json(command);
           });
           break;
         }
       case "leave":
         {
           Channel.leave(command.from, command.parameter, function () {
-            return res.status(201);
+            return res.status(201).json(command);
           });
           break;
         }
       default:
-        Message.send(command.from, command.action, command.parameter);
-        break;
+        {
+          Channel.message(command.from, command.action, command.parameter, function () {
+            return res.status(201).json(command);
+          });
+          break;
+        }
     }
   });
 };

@@ -13,9 +13,11 @@ var MessageSchema = new Schema({
   }
 });
 
-MessageSchema.statics.send = function(message)
-{
-   
+MessageSchema.statics.findByChannel = function (channelname, callback) {
+  console.log("Finding messages for channel: " + channelname);
+  this.find({ channel: channelname }, function(err, res) {
+    callback(res);
+  });
 }
 
 module.exports = mongoose.model('Message', MessageSchema);
