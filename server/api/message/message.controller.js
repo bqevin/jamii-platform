@@ -7,7 +7,6 @@ var Message = require('./message.model');
 exports.index = function(req, res) {
   console.log("Message index for: " + req.query.channel_name);
   Message.findByChannel(req.query.channel_name, function (messages) {
-    console.log(messages);
     return res.status(200).json(messages);
   });
 };
