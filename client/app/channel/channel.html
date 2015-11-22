@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form class="form" ng-submit="createChannel()">
+        <div class="form-group">
+          <input type="text" maxlength="20" class="form-control" ng-model="channel.name" placeholder="Channel name, max 20 chars" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Create Channel" />
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div><input ng-model="flt" class="form-control" type="search" placeholder="Search for a Channel" /></div><br/>
+      <div class="list-group">
+        <a class="list-group-item" ng-repeat="channel in channels | filter: flt" ui-sref="channelDetail({ channelId: channel._id })"><span class="badge">{{channel.members.length}}</span> {{ channel.name }}</a>
+      </div>
+    </div>
+  </div>
+</div>

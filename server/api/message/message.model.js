@@ -13,4 +13,9 @@ var MessageSchema = new Schema({
   }
 });
 
+MessageSchema.statics.send = function(message)
+{
+   
+}
+
 module.exports = mongoose.model('Message', MessageSchema);

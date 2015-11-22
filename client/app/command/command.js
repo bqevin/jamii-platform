@@ -3,10 +3,10 @@
 angular.module('jamiiApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('message', {
-        url: '/messages',
-        templateUrl: 'app/message/message.html',
-        controller: 'MessageCtrl',
+      .state('command', {
+        url: '/commands',
+        templateUrl: 'app/command/command.html',
+        controller: 'CommandCtrl',
         authenticate: true
       });
   });

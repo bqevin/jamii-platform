@@ -8,6 +8,7 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Message = require('../api/message/message.model');
+var Channel = require('../api/channel/channel.model');
 
 Thing.find({}).remove(function () {
   Thing.create({
@@ -31,27 +32,24 @@ Thing.find({}).remove(function () {
     });
 });
 
-Message.find({}).remove(function () {
-  Message.create(
+Channel.find({}).remove(function () {
+  Channel.create(
     {
-      content: 'Health event today at 6pm in the town hall',
-      channel: 'Health',
-      from: '+12312313213'
+      name: 'health',
+      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
     }, {
-      content: 'Fertilizer truck is coming in tomorrow morning',
-      channel: 'Agriculture',
-      from: '+1231252213'
+      name: 'agriculture',
+      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }]
     }, {
-      content: 'I need some help with my dying crops',
-      channel: 'Agriculture',
-      from: '+12348513213'
+      name: 'oleleshwa_agriculture',
+      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
     }, {
-      content: 'Parents and teachers meeting happening in 5 hours',
-      channel: 'Education',
-      from: '+12312313213'
+      name: 'education',
+      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
     }, function () {
-      console.log('finished populating message');
+      console.log('finished populating channels');
     });
+    
 });
 
 User.find({}).remove(function () {
@@ -71,3 +69,14 @@ User.find({}).remove(function () {
     }
     );
 });
+
+function random(count)
+{
+    var text = "254";
+    var possible = "0123456789";
+
+    for( var i=0; i < count; i++)
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
