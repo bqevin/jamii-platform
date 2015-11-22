@@ -336,6 +336,17 @@ module.exports = function (grunt) {
         html: ['<%= yeoman.dist %>/public/*.html']
       }
     },
+    
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.client %>/assets/images',
+          src: '{,*/}*.{png,jpg,jpeg,gif}',
+          dest: '<%= yeoman.dist %>/public/assets/images'
+        }]
+      }
+    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -414,6 +425,7 @@ module.exports = function (grunt) {
       dist: [
         'babel',
         'sass',
+        'imagemin',
         'svgmin'
       ]
     },
