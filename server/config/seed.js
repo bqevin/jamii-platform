@@ -36,7 +36,7 @@ Channel.find({}).remove(function () {
   Channel.create(
     {
       name: 'reality_check',
-      members: [{ number: "+16478789458" }, { number: "+16479625506" }] 
+      members: [{ number: "+16478789458" }, { number: "+16479625506" }]
     },
     {
       name: 'health',
@@ -59,9 +59,9 @@ Channel.find({}).remove(function () {
 User.find({}).remove(function () {
   User.create({
     provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
+    name: 'Amy (FTC Admin)',
+    email: 'amy@ftc.com',
+    password: 'amy'
   }, {
       provider: 'local',
       role: 'admin',
