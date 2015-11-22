@@ -56,6 +56,29 @@ Channel.find({}).remove(function () {
 
 });
 
+Message.find({}).remove(function () {
+  Message.create(
+    {
+      content: 'Health event today at 6pm in the town hall',
+      channel: 'health',
+      from: '+12312313213'
+    }, {
+      content: 'Fertilizer truck is coming in tomorrow morning',
+      channel: 'agriculture',
+      from: '+1231252213'
+    }, {
+      content: 'I need some help with my dying crops',
+      channel: 'agriculture',
+      from: '+12348513213'
+    }, {
+      content: 'Parents and teachers meeting happening in 5 hours',
+      channel: 'education',
+      from: '+12312313213'
+    }, function () {
+      console.log('finished populating message');
+    });
+});
+
 User.find({}).remove(function () {
   User.create({
     provider: 'local',
