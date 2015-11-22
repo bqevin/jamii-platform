@@ -36,7 +36,7 @@ Channel.find({}).remove(function () {
   Channel.create(
     {
       name: 'reality_check',
-      members: [{ number: "+16478789458" }, { number: "+16476946148" }]
+      members: [{ number: "+16478789458" }, { number: "+16479625506" }] 
     },
     {
       name: 'health',
