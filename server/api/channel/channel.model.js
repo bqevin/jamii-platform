@@ -18,7 +18,8 @@ var ChannelSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now()
-  }
+  },
+  statsimage: String
 });
 
 ChannelSchema.pre('save', function (next) {

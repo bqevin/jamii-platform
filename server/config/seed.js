@@ -35,21 +35,22 @@ Thing.find({}).remove(function () {
 Channel.find({}).remove(function () {
   Channel.create(
     {
-      name: 'reality_check',
-      members: [{ number: "+16478789458" }, { number: "+16479625506" }]
-    },
-    {
       name: 'health',
-      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
+      members: [
+        { number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }
+      ],
+      statsimage: 'assets/images/health.png'
     }, {
       name: 'agriculture',
-      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
+      members: [
+        { number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }
+      ], statsimage: "assets/images/agriculture.png"
     }, {
-      name: 'oleleshwa_agriculture',
-      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
+      name: 'oleleshwaagriculture',
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }], statsimage: 'assets/images/oleleshwaagriculture.png'
     }, {
       name: 'education',
-      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }], statsimage: 'assets/images/education.png'
     }, function () {
       console.log('finished populating channels');
     });
