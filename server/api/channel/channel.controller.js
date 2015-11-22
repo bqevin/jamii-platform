@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var Channel = require('./channel.model');
 
+
 // Get list of channels
 exports.index = function(req, res) {
   Channel.find(function (err, channels) {
@@ -56,4 +57,23 @@ exports.destroy = function(req, res) {
 
 function handleError(res, err) {
   return res.status(500).send(err);
+}
+
+function addMember (str, channel) {
+  Channel.findById(req.params.id, function (err, channel) {
+    if(err) { return handleError(res, err); }
+    if(!channel) { return res.status(404).send('Not Found'); }
+    channel.remove(function(err) {
+      if(err) { return handleError(res, err); }
+      return res.status(204).send('No Content');
+    });
+  });
+}
+
+function removeMember (str) {
+
+}
+
+function sendMessage(messagetext) {
+
 }
