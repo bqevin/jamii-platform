@@ -3,14 +3,14 @@ var TwilioClient = require('./twilio.client');
 exports.send = function (txt_number, txt_message) {
 
   var client = TwilioClient.getClient();
-  var fromnumber = TwilioClient.getFromNumber();
+  var from_number = TwilioClient.getFromNumber();
 
   // Send an SMS text message
 
   client.sendMessage({
 
       to: txt_number,
-      from: fromnumber,
+      from: from_number,
       body: txt_message
 
   }, function(err, responseData) {

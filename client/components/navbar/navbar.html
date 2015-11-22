@@ -9,7 +9,7 @@
       </button>
       <a href="/" class="navbar-brand">Jamii</a>
     </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+    <div ng-if="isLoggedIn()" collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
         <li class="item" ui-sref-active>
             <a ui-sref="channel()">Channels</a>
