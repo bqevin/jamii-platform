@@ -7,12 +7,15 @@ var Message = require('../message/message.model');
 
 // Creates a new command in the DB.
 exports.create = function (req, res) {
-  var command = parseRaw(req.body.raw);
+  var raw = req.body;
+  
+  // parse the text command
+  var command = parseRaw(raw.Body);
+  // copy the number from which text was sent
+  command.from = raw.From;
+  
   command.save(function (err, command) {
     if (err) { return handleError(res, err); }
-
-    //todo add "from" from Twilio api
-    command.from = "1028301293";
     switch (command.action) {
       case "join":
         {

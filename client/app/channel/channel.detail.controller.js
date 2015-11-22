@@ -9,7 +9,7 @@ angular.module('jamiiApp')
     });
     
     $scope.sendMessageToChannel = function() {
-      $http.post('/api/commands', { raw: $scope.command }).then(function(res) {
+      $http.post('/api/commands', { Body: $scope.command, From: "+0000000000" }).then(function(res) {
         console.log('sent');
       });
     };
