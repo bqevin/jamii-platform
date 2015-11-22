@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # jamii
 
 1. Install NodeJS
@@ -6,3 +7,7 @@
 4. Run `grunt serve` in the directory
 	
 	
+=======
+# jamii-platform
+everything about crowdsourcing infomation
+>>>>>>> c5227f345e9bdbad6c9a4077b964f9549477662d
