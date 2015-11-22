@@ -3,32 +3,35 @@
 var _ = require('lodash');
 var Command = require('./command.model');
 var Channel = require('../channel/channel.model');
-var Message = require('../message/channel.model');
+var Message = require('../message/message.model');
 
 // Creates a new command in the DB.
 exports.create = function (req, res) {
   var command = parseRaw(req.body.raw);
   command.save(function (err, command) {
     if (err) { return handleError(res, err); }
-    
-    switch(command.action)
-    {
-      case "join": 
-      {
-        Channel.join(command.from, command.parameter);
-        break;
-      }
-      case "leave": 
-      {
-        Channel.remove(command.from, command.parameter);
-        break;
-      }
+
+    //todo add "from" from Twilio api
+    command.from = "1028301293";
+    switch (command.action) {
+      case "join":
+        {
+          Channel.join(command.from, command.parameter, function() {
+            return res.status(201);
+          });
+          break;
+        }
+      case "leave":
+        {
+          Channel.leave(command.from, command.parameter, function () {
+            return res.status(201);
+          });
+          break;
+        }
       default:
         Message.send(command.from, command.action, command.parameter);
         break;
     }
-    
-    return res.status(201).json(command);
   });
 };
 
@@ -36,7 +39,7 @@ function parseRaw(raw) {
   var cs = new Command({
     raw: raw
   });
-  
+
   var res = raw.split(" ");
   if (res.length > 1) {
 

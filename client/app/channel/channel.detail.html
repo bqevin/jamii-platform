@@ -10,11 +10,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<ul class="list-group" style="list-style: none;">
-				<li class="list-group-item" style="list-style: none;" ng-repeat="member in channel.members track by $index">{{ member }} <div class="help-block">Female, age 23</div></li>
+				<li class="list-group-item" style="list-style: none;" ng-repeat="member in channel.members track by $index">{{ member.number }}
+					<div class="help-block">Female, age 23</div>
+				</li>
 			</ul>
 		</div>
 		<div class="col-md-6">
-				<div style="border: 1px solid #ccc; margin-left: auto; margin-right: auto; text-align: center;"><img class="media" src="http://winegarsaroundtheworld.com/wp-content/uploads/2015/09/statistics.jpg" /></div>
+			<div style="border: 1px solid #ccc; margin-left: auto; margin-right: auto; text-align: center;"><img class="media" src="http://winegarsaroundtheworld.com/wp-content/uploads/2015/09/statistics.jpg" /></div>
 		</div>
 	</div>
 
