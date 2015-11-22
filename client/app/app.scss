@@ -23,6 +23,10 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
   height: 55px;
 }
 
+.form-control {
+  padding-bottom: 0.5em;
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
