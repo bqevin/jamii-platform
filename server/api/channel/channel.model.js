@@ -3,7 +3,8 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-var twilio = require('../message/twilio.message');
+var Message = require('../message/message.model');
+var Twilio = require('../message/twilio.message');
 
 var member = {
   number: String
@@ -44,9 +45,14 @@ ChannelSchema.statics.message = function (fromNumber, channelName, message, cb) 
   this.findOne({ name: channelName }).then(function (channel) {
     if (channel) {
       for (var i = 0; i < channel.members.length; i++) {
-        twilio.send(channel.members[i].number, message, function () {
-          console.log("message sent");
-          cb();
+        Twilio.send(channel.members[i].number, message, function () {
+          Message.create({
+            content: message,
+            channel: channel.name,
+            from: fromNumber
+          }).then(function () {
+            cb();
+          })
         });
       }
     }
