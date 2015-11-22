@@ -36,20 +36,20 @@ Channel.find({}).remove(function () {
   Channel.create(
     {
       name: 'health',
-      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
     }, {
       name: 'agriculture',
-      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }]
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
     }, {
       name: 'oleleshwa_agriculture',
-      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
     }, {
       name: 'education',
-      members: [{ number: random(7) }, { number: random(7) }, { number: random(7) }, { number: random(7) }]
+      members: [{ number: random(7), gender: "Female", age: 28 }, { number: random(7), gender: "Male", age: 54 }, { number: random(7), gender: "Female", age: 43 }, { number: random(7), gender: "Male", age: 27 }]
     }, function () {
       console.log('finished populating channels');
     });
-    
+
 });
 
 User.find({}).remove(function () {

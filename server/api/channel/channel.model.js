@@ -4,7 +4,9 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var member = {
-  number: String
+  number: String,
+  gender: String,
+  age: Number
 };
 
 var ChannelSchema = new Schema({
