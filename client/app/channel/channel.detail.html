@@ -20,7 +20,7 @@
 				<div><h4>Members</h4></div>
 			</div>
 			<ul class="list-group" style="list-style: none;">
-				<li class="list-group-item" style="list-style: none;" ng-repeat="member in channel.members | filter: mmbrfltr">+{{ member.number }}
+				<li class="list-group-item" style="list-style: none;" ng-repeat="member in channel.members | filter: mmbrfltr">{{ member.number }}
 					<div class="help-block">{{ member.gender }}, age {{ member.age }}</div>
 				</li>
 			</ul>
