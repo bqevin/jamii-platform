@@ -5,8 +5,9 @@ var Message = require('./message.model');
 
 // Get list of messages
 exports.index = function(req, res) {
-  Message.find(function (err, messages) {
-    if(err) { return handleError(res, err); }
+  console.log("Message index for: " + req.query.channel_name);
+  Message.findByChannel(req.query.channel_name, function (messages) {
+    console.log(messages);
     return res.status(200).json(messages);
   });
 };
@@ -22,7 +23,7 @@ exports.show = function(req, res) {
 
 // Creates a new message in the DB.
 exports.create = function(req, res) {
-  
+
 };
 
 // Updates an existing message in the DB.
