@@ -5,7 +5,7 @@ angular.module('jamiiApp')
 
     $http.get('/api/channels/' + channelId).then(function (res) {
       $scope.channel = res.data;
-      $scope.command = $scope.channel.name;
+      $scope.command = "#" + $scope.channel.name + " ";
 
       $http.get('/api/messages/?channel_name=' + $scope.channel.name).then(function(res) {
         $scope.messages = res.data;
